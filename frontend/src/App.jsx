@@ -8,6 +8,9 @@ import Dashboard from "./pages/Dashboard";
 import Departments from "./pages/Departments";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Analytics from "./pages/Analytics";
+import ESG from "./pages/ESG";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -15,13 +18,17 @@ function App() {
       <Routes>
 
 
-        
+
         <Route path="/" element={<Home />} />
         <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="departments" element={<Departments />} />
         <Route path="/header" element={<Header />} />
         <Route path="/nav" element={<Navbar />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/esg" element={<ESG />} />
+
 
 
 
