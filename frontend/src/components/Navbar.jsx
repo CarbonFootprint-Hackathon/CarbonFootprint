@@ -59,7 +59,7 @@ const Navbar = () => {
         <p className="text-sm font-semibold">Name</p>
         <p className="text-sm text-gray-600 mb-3">Department</p>
 
-        <button className="w-full bg-red-500 text-white py-1 rounded hover:bg-red-600 transition flex items-center justify-center gap-2">
+        <button className="w-full bg-green-500 text-white py-1 rounded hover:bg-green-600 transition flex items-center justify-center gap-2">
           <FaSignOutAlt /> Logout
         </button>
       </div>

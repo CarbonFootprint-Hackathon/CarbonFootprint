@@ -16,8 +16,8 @@ const Header = () => {
             Live Data
           </h1>
         <div className='mr-3'>
-          <h1>Last Updated</h1>
-          <h3 className='font-bold bg-green-200 rounded-3xl'>0 Seconds Ago</h3>
+          <h1 className='ml-4'>Last Updated</h1>
+          <h3 className='font-bold bg-green-200 rounded-3xl px-2 py-1'>0 Seconds Ago</h3>
         </div>
       
     </div>
