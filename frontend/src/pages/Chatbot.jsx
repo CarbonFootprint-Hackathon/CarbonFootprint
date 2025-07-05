@@ -1,73 +1,103 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { IoChatbubble } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import axios from "axios"
+import axios from "axios";
+
 const Chatbot = () => {
-  const BASE_URL = "http://localhost:8080"
-  const [chat, setchat] = useState(false)
-  const userinput = useRef("")
-  const Scroll = useRef()
-  const button = document.getElementById("sendbutton")
-  const [message, setmessage] = useState([
-    { user: "bot", message: "Hi there, Carbon tracker assistant" }
-  ])
-  console.log(message)
-  const handleinput = () => {
-    if(userinput.current.value == "") return
-    setmessage((prev) => (
-      [...prev, { user: "user", message: userinput.current.value }]
-    ))
-    console.log(userinput.current.value)
-    axios.post(`${BASE_URL}/chatbot`, { input: (userinput.current.value) })
+  const BASE_URL = "http://localhost:8080";
+
+  const [chatOpen, setChatOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { user: "bot", message: "Hi there, I’m your Carbon Tracker Assistant 🌱" }
+  ]);
+
+  const inputRef = useRef();
+  const scrollRef = useRef();
+
+  const handleSend = () => {
+    const input = inputRef.current.value.trim();
+    if (input === "") return;
+
+    setMessages(prev => [...prev, { user: "user", message: input }]);
+    inputRef.current.value = "";
+
+    axios.post(`${BASE_URL}/chatbot`, { input })
       .then(res => {
-        setmessage((prev) => (
-          [...prev, { user: "bot", message: res.data }]
-        ))
+        setMessages(prev => [...prev, { user: "bot", message: res.data }]);
       })
-  }
+      .catch(() => {
+        setMessages(prev => [...prev, { user: "bot", message: "Oops! Something went wrong." }]);
+      });
+  };
+
   useEffect(() => {
-    if (Scroll.current) {
-      Scroll.current.scrollTop = Scroll.current.scrollHeight
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [message])
-
-
+  }, [messages]);
 
   return (
-
-    <div className=''>
-
-      <button className='border p-5  rounded-full fixed bottom-10 right-10 active:scale-110 ' onClick={() => setchat(!chat)}>
-
-        <IoChatbubble className=' active:scale-110 text-green-500 text-2xl fill-current  ' />
+    <div className="fixed bottom-6 right-6 z-50">
+      {/* Chat toggle button */}
+      <button
+        className="p-4 rounded-full shadow-lg bg-green-100 hover:bg-green-200 transition-all duration-200"
+        onClick={() => setChatOpen(!chatOpen)}
+      >
+        <IoChatbubble className="text-green-600 text-2xl" />
       </button>
-      {
-        chat ? <div className=' w-full h-full   '>
-          <div className=' fixed bottom-8 right-8'>
-            <div name="" id="" className=' bg-gray-100 min-h-96 min-w-64  bottom-15 rounded-l-sm rounded-r-sm rounded-br-sm right-10 z-50  overflow-hidden relative  '>
-              <ul ref={Scroll} className='flex flex-col   h-80 top-10 absolute w-full overflow-y-scroll'>
-                {
-                  message.map((item, key) => (
-                    <li key={key} className={`${item.user == "user" ? "self-end bg-red-300" : "right-0 bg-green-200"} w-[70%]  px-2 rounded-sm   mb-2 mr-2 ml-2 py-2`}>{item.message}</li>
-                  ))
-                }
-              </ul>
-              <input type="text" className=' bg-white border-dotted border bottom-0 absolute text-sm w-[70%] outline-0 h-8 pl-2 pr-2' ref={userinput} onKeyDown={(e) => {
-                if (e.key == "Enter") {
-                  e.preventDefault();
-                  handleinput();
-                }
-              }} />
-              <button id='sendbutton' className='bottom-0 right-0 absolute  rounded- px-3 w-[30%] bg-red-500 py-1 active:scale-110' onClick={handleinput}>Send</button>
-            </div>
-            <p className='-top-13 absolute z-50 font-mono pr-5 '>Assistant</p>
-            <RxCross2 className='z-50 text-2xl -top-12 absolute right-13 active:scale-110 ' onClick={() => setchat(!chat)} />
+
+      {chatOpen && (
+        <div className="w-80 h-96 mt-4 rounded-xl bg-white shadow-2xl flex flex-col relative overflow-hidden">
+          {/* Header */}
+          <div className="bg-green-600 text-white flex justify-between items-center px-4 py-2">
+            <span className="font-semibold">Carbon Assistant</span>
+            <RxCross2
+              className="cursor-pointer text-xl hover:text-gray-200 transition"
+              onClick={() => setChatOpen(false)}
+            />
           </div>
 
-        </div> : ""
-      }
-    </div>
-  )
-}
+          {/* Messages */}
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-scroll px-3 py-2 space-y-2 bg-gray-50"
+          >
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`w-fit max-w-[70%] px-3 py-2 rounded-md text-sm ${
+                  msg.user === "user"
+                    ? "ml-auto bg-green-100 text-right"
+                    : "mr-auto bg-white border"
+                }`}
+              >
+                {msg.message}
+              </div>
+            ))}
+          </div>
 
-export default Chatbot
+          {/* Input */}
+          <div className="flex border-t p-2 bg-white">
+            <input
+              type="text"
+              ref={inputRef}
+              placeholder="Type a message..."
+              className="flex-1 text-sm px-3 py-1 border border-gray-300 rounded-l-md focus:outline-none"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSend();
+              }}
+            />
+            <button
+              onClick={handleSend}
+              className="bg-green-600 text-white px-4 rounded-r-md hover:bg-green-700 transition"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Chatbot;
