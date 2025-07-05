@@ -4,9 +4,11 @@ import Header from "../components/Header";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div >
       <Navbar />
+      
       <Header />
+
       {/* Stats Cards */}
       <div className="flex justify-center items-center gap-8 mt-10 ml-60">
         <div className="h-40 w-60 bg-white shadow-md flex flex-col items-center justify-center border-2 border-green-200 hover:cursor-pointer transition-transform duration-200 hover:scale-105 rounded-2xl">
@@ -101,6 +103,33 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Fourth */}
+      <div className="flex justify-center items-start gap-8 mt-12 ml-60 mb-16">
+  <div className="bg-white shadow-lg rounded-2xl p-6 w-full max-w-6xl border border-gray-100">
+    <h1 className="text-xl font-bold text-gray-800 mb-6">Emission Scope Breakdown</h1>
+
+    <div className="flex flex-wrap gap-6 justify-center">
+      {/* Scope 1 */}
+      <div className="w-64 bg-red-50 border border-red-200 rounded-xl px-5 py-6 hover:scale-[1.03] transition-transform shadow-sm">
+        <h2 className="text-lg font-bold text-red-700 mb-2">Scope 1</h2>
+        <p className="text-gray-700 text-sm">Direct emissions from owned or controlled sources (e.g., fuel combustion).</p>
+      </div>
+
+      {/* Scope 2 */}
+      <div className="w-64 bg-yellow-50 border border-yellow-200 rounded-xl px-5 py-6 hover:scale-[1.03] transition-transform shadow-sm">
+        <h2 className="text-lg font-bold text-yellow-700 mb-2">Scope 2</h2>
+        <p className="text-gray-700 text-sm">Indirect emissions from the generation of purchased electricity consumed.</p>
+      </div>
+
+      {/* Scope 3 */}
+      <div className="w-64 bg-green-50 border border-green-200 rounded-xl px-5 py-6 hover:scale-[1.03] transition-transform shadow-sm">
+        <h2 className="text-lg font-bold text-green-700 mb-2">Scope 3</h2>
+        <p className="text-gray-700 text-sm">All other indirect emissions in the value chain (e.g., transportation, suppliers).</p>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 };
