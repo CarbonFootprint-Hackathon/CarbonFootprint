@@ -17,7 +17,7 @@ const Header = () => {
           </h1>
         <div className='mr-3'>
           <h1>Last Updated</h1>
-          <h3 className='font-bold bg-green-200 rounded-3xl '>0 Seconds Ago</h3>
+          <h3 className='font-bold bg-green-200 rounded-3xl'>0 Seconds Ago</h3>
         </div>
       
     </div>
