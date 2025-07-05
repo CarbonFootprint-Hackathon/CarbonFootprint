@@ -5,16 +5,16 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-white text-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-white-50 to-white text-gray-800">
       {/* Header */}
       <header className="flex justify-between items-center p-6 shadow-md bg-white">
         <h1 className="text-3xl font-bold text-green-700">CarbonTrack</h1>
-        <button
+        {/* <button
           onClick={() => navigate("/login")}
           className="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg"
         >
           Login
-        </button>
+        </button> */}
       </header>
 
       {/* Hero Section */}

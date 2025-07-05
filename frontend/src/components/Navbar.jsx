@@ -7,12 +7,12 @@ const Navbar = () => {
     <div className="h-screen w-60 bg-white-50 p-4 flex flex-col justify-between fixed shadow-md">
       
       <div>
-        <h1 className="text-2xl font-extrabold mb-1 text-green-500">Carbon Footprint</h1>
+        <h1 className="text-2xl font-extrabold mb-1 text-green-500">CarbonTrack</h1>
         <h2 className="text-md font-semibold mb-4 pt-4 border-b border-gray-300">Net Zero Tracker</h2>
 
         <nav className="flex flex-col space-y-3">
           <Link
-            to="/about"
+            to="/"
             className="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-green-500 hover:text-white transition"
           >
             <FaInfoCircle /> About
