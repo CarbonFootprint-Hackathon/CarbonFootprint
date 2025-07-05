@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Carbon Footprint Detection for machines",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "Nodemon",
+    "Express",
+    "Node",
+    "MongoDB",
+    "Cors",
+    "Multer"
+  ],
+  "author": "Team Cluster Config",
+  "license": "ISC"
+}
