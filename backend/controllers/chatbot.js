@@ -33,7 +33,7 @@ Important:
 - Respond concisely in a helpful, professional tone
   the user request is ${input}`,
     });
-    console.log(response.text);
+    // console.log(response.text);
     res.send(response.text)
 }
 
