@@ -35,7 +35,7 @@ const Chatbot = () => {
 
   return (
 
-    <div className='min-h-screen min-w-screen'>
+    <div className=''>
 
       <button className='border p-5  rounded-full fixed bottom-10 right-10 active:scale-110 ' onClick={() => setchat(!chat)}>
 
