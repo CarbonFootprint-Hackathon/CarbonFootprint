@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Carbon Footprint Detection for machines",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "Nodemon",
@@ -15,5 +17,11 @@
     "Multer"
   ],
   "author": "Team Cluster Config",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.8.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
 }

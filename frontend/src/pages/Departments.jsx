@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Header from '../components/Header'
+import Chatbot from './Chatbot'
 
 const Departments = () => {
   return (
@@ -33,9 +34,10 @@ const Departments = () => {
                     <h1 className='font-bold'>Carbon Emissions</h1>
                     <h1 className='mt-2 '>Value - <span className='font-bold'> kg Co2 </span></h1>
                     <button className='bg-green-300 p-2 rounded-2xl mt-3 hover:bg-green-400'>View More</button>
-                </div>
+                  </div>
             </div>
         </div>
+                  <Chatbot/>
     </div>
   )
 }

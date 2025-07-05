@@ -39,13 +39,7 @@ const Navbar = () => {
             <FaChartBar /> Analytics
           </Link>
 
-          <Link
-            to="/chatbot"
-            className="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-green-500 hover:text-white transition"
-          >
-            <FaRobot /> Chatbot
-          </Link>
-
+          
           <Link
             to="/esg"
             className="flex items-center gap-2 px-2 py-2 rounded-md hover:bg-green-500 hover:text-white transition"

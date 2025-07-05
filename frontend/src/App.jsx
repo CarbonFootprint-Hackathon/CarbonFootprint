@@ -28,7 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/esg" element={<ESG />} />
-
+        <Route path="/chatbot" element={<Chatbot/>} />
 
 
 

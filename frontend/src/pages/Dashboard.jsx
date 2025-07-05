@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
+import Chatbot from "./Chatbot";
 
 const Dashboard = () => {
   return (
@@ -120,15 +121,17 @@ const Dashboard = () => {
       <div className="w-64 bg-yellow-50 border border-yellow-200 rounded-xl px-5 py-6 hover:scale-[1.03] transition-transform shadow-sm">
         <h2 className="text-lg font-bold text-yellow-700 mb-2">Scope 2</h2>
         <p className="text-gray-700 text-sm">Indirect emissions from the generation of purchased electricity consumed.</p>
-      </div>
-
+            </div>
+            
       {/* Scope 3 */}
       <div className="w-64 bg-green-50 border border-green-200 rounded-xl px-5 py-6 hover:scale-[1.03] transition-transform shadow-sm">
         <h2 className="text-lg font-bold text-green-700 mb-2">Scope 3</h2>
         <p className="text-gray-700 text-sm">All other indirect emissions in the value chain (e.g., transportation, suppliers).</p>
-      </div>
+            </div>
+            <Chatbot />
     </div>
   </div>
+
 </div>
     </div>
   );

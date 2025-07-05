@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Chatbot from "./Chatbot";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -73,6 +74,8 @@ const Home = () => {
           </div>
         ))}
       </section>
+
+      <Chatbot/>
 
       {/* Footer */}
       <footer className="text-center text-sm py-6 bg-gray-100 text-gray-500">
