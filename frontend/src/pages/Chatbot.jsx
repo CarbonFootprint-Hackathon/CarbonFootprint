@@ -9,11 +9,11 @@ const Chatbot = () => {
   const Scroll = useRef()
   const button = document.getElementById("sendbutton")
   const [message, setmessage] = useState([
-    { user: "bot", message: "Hi there, Carbon tracker assistent" },
-    { user: "user", message: "Hi there, how i can help you" },
+    { user: "bot", message: "Hi there, Carbon tracker assistant" }
   ])
   console.log(message)
   const handleinput = () => {
+    if(userinput.current.value == "") return
     setmessage((prev) => (
       [...prev, { user: "user", message: userinput.current.value }]
     ))
