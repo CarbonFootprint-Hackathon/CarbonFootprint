@@ -39,12 +39,12 @@ const Chatbot = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Chat toggle button */}
-      <button
+      {!chatOpen ? <button
         className="p-4 rounded-full shadow-lg bg-green-100 hover:bg-green-200 transition-all duration-200"
         onClick={() => setChatOpen(!chatOpen)}
       >
         <IoChatbubble className="text-green-600 text-2xl" />
-      </button>
+      </button> : ""}
 
       {chatOpen && (
         <div className="w-80 h-96 mt-4 rounded-xl bg-white shadow-2xl flex flex-col relative overflow-hidden">
