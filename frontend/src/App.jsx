@@ -12,6 +12,11 @@ import Analytics from "./pages/Analytics";
 import ESG from "./pages/ESG";
 import About from "./pages/About";
 
+// Departments Pages
+import Dispatch from "./pages/Departments/Dispatch";
+import Machining from "./pages/Departments/Machining";
+import Melting from "./pages/Departments/Melting";
+
 function App() {
   return (
     <BrowserRouter>
@@ -29,8 +34,9 @@ function App() {
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/esg" element={<ESG />} />
         <Route path="/chatbot" element={<Chatbot/>} />
-
-
+        <Route path="/dispatch" element={<Dispatch/>} />
+        <Route path="/machining" element={<Machining/>} />
+        <Route path="/melting" element={<Melting/>} />
 
 
       </Routes>
