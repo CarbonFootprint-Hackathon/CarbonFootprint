@@ -36,8 +36,9 @@ function App() {
         <Route path="/chatbot" element={<Chatbot/>} />
         <Route path="/dispatch" element={<Dispatch/>} />
         <Route path="/machining" element={<Machining/>} />
-        <Route path="/melting" element={<Melting/>} />
-
+        <Route path="/melting" element={<Melting />} />
+        <Route path="/machining" element={<Machining />} />
+        <Route path="/dispatch" element={<Dispatch />} />
 
       </Routes>
     </BrowserRouter>
