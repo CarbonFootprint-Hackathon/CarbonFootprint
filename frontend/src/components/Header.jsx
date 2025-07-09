@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       
           <h1>
-            <FcEnteringHeavenAlive className='ml-5' />
+            <FcEnteringHeavenAlive className='ml-5 animate-bounce text-2xl' />
 
             Live Data
           </h1>
