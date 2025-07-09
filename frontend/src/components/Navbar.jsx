@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className="h-screen w-60 bg-white-50 p-4 flex flex-col justify-between fixed shadow-md">
       
-      <div>
+      <div>   
         <h1 className="text-2xl font-extrabold mb-1 text-green-500">CarbonTrack</h1>
         <h2 className="text-md font-semibold mb-4 pt-4 border-b border-gray-300">Net Zero Tracker</h2>
 

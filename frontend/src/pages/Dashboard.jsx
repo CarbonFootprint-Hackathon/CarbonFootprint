@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Chatbot from "./Chatbot";
 
 const Dashboard = () => {
+  const [carbon, setcarbon] = useState();
+  useEffect(() => {
+    const data = async () => {
+      let data = await fetch("https://api.electricitymap.org/v3/carbon-intensity/latest?zone=IN-SO", {
+        headers: {
+          "auth-token": "gzAWifbK0MepNAPcSzai"
+        },
+      })
+      let carbon = await data.json();
+      // console.log(carbon)
+      setcarbon(carbon.carbonIntensity)
+  }
+  data()
+  })
   return (
     <div >
       <Navbar />
@@ -14,9 +28,11 @@ const Dashboard = () => {
       <div className="flex justify-center items-center gap-8 mt-10 ml-60">
         <div className="h-40 w-60 bg-white shadow-md flex flex-col items-center justify-center border-2 border-green-200 hover:cursor-pointer transition-transform duration-200 hover:scale-105 rounded-2xl">
           <h1 className="font-bold text-lg text-green-700 mb-2">
-            Total CO₂ Today
+            Total CO₂ Today 
           </h1>
-          <span className="text-2xl font-semibold text-gray-700">1,234 kg</span>
+          <span className="text-2xl font-semibold text-gray-700">{
+            carbon
+          }</span>
         </div>
         <div className="h-40 w-60 bg-white shadow-md flex flex-col items-center justify-center border-2 border-yellow-200 hover:cursor-pointer transition-transform duration-200 hover:scale-105 rounded-2xl">
           <h1 className="font-bold text-lg text-yellow-700 mb-2">
