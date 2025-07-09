@@ -4,7 +4,7 @@ const ai = new GoogleGenAI({ apiKey:"AIzaSyAFD6rvUPtHj08ewDn7ftuD46hLmPFS594"});
 
 const Chatbot = async(req,res)=> {
     const { input } = req.body;
-    console.log(req.body)
+    // console.log(req.body)
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
         contents: `You are an expert assistant designed to only answer questions related to the project titled: 
