@@ -2,7 +2,7 @@ import React from 'react';
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
-
+import Navbar from '../components/Navbar';
 const mockData = [
   { name: 'Jan', emission: 400 },
   { name: 'Feb', emission: 300 },
@@ -73,7 +73,11 @@ const Graph2 = ({ title }) => (
 
 const Analytics = () => {
   return (
-    <div className="min-h-screen bg-white p-6 flex flex-col items-center ">
+    <div className='flex flex-col md:flex-row w-full h-screen'>
+    <div >
+    <Navbar />  
+    </div>
+      <div className="min-h-screen bg-white p-6 flex flex-col items-center ml-60">
       <h1 className="text-2xl text-green-500 font-bold mb-6 pb-3">Carbon Emission Dashboard</h1>
       
       {/* Top Graphs */}
@@ -87,6 +91,10 @@ const Analytics = () => {
         <Graph2 title="Dispatch Department" />
       </div>
     </div>
+    {/* </div> */}
+
+    </div>
+
   );
 };
 
